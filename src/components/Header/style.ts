@@ -1,4 +1,5 @@
 import { StatusBar, StyleSheet } from "react-native";
+import { BUTTON_SIZE_ENUM } from "../../enums/ButtonSize";
 import { COLORS_ENUM } from "../../enums/ColorsEnum";
 import { SHADOWS_RADIUS_ENUM } from "../../enums/ShadowRadius";
 import { SHADOWS_ELEVATION_ENUM } from "../../enums/ShadowsElevation";
@@ -21,7 +22,10 @@ export const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 16,
+    paddingStart: 16,
+    paddingEnd: 16,
+    paddingTop:16,
+    paddingBottom:128,
     backgroundColor: COLORS_ENUM.primary
   },
   title: {
@@ -30,19 +34,19 @@ export const styles = StyleSheet.create({
     color: COLORS_ENUM.primary_light,
   },
   searchButton: {
-    height: 45,
-    width: 45,
+    height: BUTTON_SIZE_ENUM.aux,
+    width: BUTTON_SIZE_ENUM.aux,
     justifyContent: 'center',
     alignItems:'center',
-    backgroundColor: 'rgba(72,179,192,0.9)',
-    borderRadius: 45 / 2,
+    backgroundColor: COLORS_ENUM.primary_light,
+    borderRadius: 100 * 0.5,
     shadowColor: '#000',
     shadowOffset: {
-      width: SHADOWS_OFFSET_ENUM.medium_width,
-      height: SHADOWS_OFFSET_ENUM.medium_height
+      width: SHADOWS_OFFSET_ENUM.basic_width,
+      height: SHADOWS_OFFSET_ENUM.basic_height
     },
-    shadowRadius: SHADOWS_RADIUS_ENUM.medium,
-    shadowOpacity: SHADOWS_OPACITY_ENUM.medium,
-    elevation:SHADOWS_ELEVATION_ENUM.medium
+    shadowRadius: SHADOWS_RADIUS_ENUM.basic,
+    shadowOpacity: SHADOWS_OPACITY_ENUM.basic,
+    elevation:SHADOWS_ELEVATION_ENUM.basic
   }
 })
