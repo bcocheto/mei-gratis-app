@@ -31,7 +31,7 @@ export const useItem = () => {
     try {
       setIsLoading(true);
       setItems((prev) => [...prev, item]);
-      const data = await storeItems(items);
+      await storeItems(items);
       setIsLoading(false);
     } catch (error) {
       console.log('erro ao salvar dados:', error)
@@ -44,7 +44,30 @@ export const useItem = () => {
         setIsLoading(true);
         const newData = items.filter((item: Item) => item.id !== id);
         setItems([...newData]);
-        const data = await storeItems(items);
+        await storeItems(items);
+        setIsLoading(false);
+      } catch (error) {
+        console.log('erro ao salvar dados:', error)
+      }
+    },
+    [items],
+    );
+
+  const editItem = useCallback(
+    async (newItem: Item) => {
+      try {
+        setIsLoading(true);
+        const newData = items.map((item:Item) => {
+          if (item.id === newItem.id) {
+            return {
+              ...item,
+              ...newItem,
+            };
+          }
+          return item;
+        });
+        setItems(newData);
+        await storeItems(items);
         setIsLoading(false);
       } catch (error) {
         console.log('erro ao salvar dados:', error)
@@ -54,13 +77,13 @@ export const useItem = () => {
   );
 
   const getBalance = useCallback(() => {
-    const data = items.map((item: Item) => {
+    items.map((item: Item) => {
       setBalance((prev) => prev + item.quantity)
     })
   }, [items]);
 
   const getPendencie = useCallback(() => {
-    const data = items.map((item: Item) => {
+    items.map((item: Item) => {
       if (item.quantity === 0) {
         setPendencie((prev) => prev + 1)
       }
@@ -75,6 +98,7 @@ export const useItem = () => {
     isLoading,
     getAllItems,
     createItem,
+    editItem,
     deleteItem,
   };
 };

@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { Item } from '../../types/Item';
 import * as Animatable from 'react-native-animatable';
 
-interface ItemProps{
+interface ItemProps {
   item: Item;
   setSelectedItem: Dispatch<SetStateAction<Item>>;
   toggleModal: () => void;
@@ -19,21 +19,29 @@ export const ItemTileComponent = ({ item, setSelectedItem, toggleModal }: ItemPr
 
   useEffect(() => {
     animatedScale.setValue(1);
-    if (item.quantity<=2) {
+  }, []);
+
+  useEffect(() => {
+    if (item.quantity <= 2) {
       setTitleType(styles.warningTitle);
       setDescriptionType(styles.warningDescription);
       setAlert('(Estoque baixo)');
-      if (item.quantity===0) {
+      if (item.quantity === 0) {
         setTitleType(styles.ballanceTitle);
         setDescriptionType(styles.ballanceDescription);
         setAlert('(Fora de estoque)');
+        return;
       }
+    } else {
+      setTitleType(styles.defaultTitle);
+      setDescriptionType(styles.defaultDescription);
+      setAlert('');      
     }
-  }, []);
+  }, [item]);
 
 
   const handleButtonPress = () => {
-    setSelectedItem({...item});
+    setSelectedItem({ ...item });
     animatedScale.setValue(0.8);
     Animated.spring(animatedScale, {
       toValue: 1,
@@ -45,27 +53,27 @@ export const ItemTileComponent = ({ item, setSelectedItem, toggleModal }: ItemPr
 
   return (
     <Animatable.View delay={500} animation={'flipInX'} style={styles.container}>
-      
+
       <Image
         style={styles.image}
-        source={{ uri: `${item.image}`}}
+        source={{ uri: `${item.image}` }}
       />
-      
+
       <View style={styles.content}>
-        <Text numberOfLines={1} style={[styles.title,titleType]}>{item.name}{` ${alert}`}</Text>
-        <Text numberOfLines={2} style={[styles.description,descriptionType]}>{item.description}</Text>
+        <Text numberOfLines={1} style={[styles.title, titleType]}>{item.name}{` ${alert}`}</Text>
+        <Text numberOfLines={2} style={[styles.description, descriptionType]}>{item.description}</Text>
       </View>
-      
+
       <View>
-        <Text style={[styles.title,titleType]}>{item.quantity}</Text>
+        <Text style={[styles.title, titleType]}>{item.quantity}</Text>
       </View>
 
       <TouchableOpacity onPress={handleButtonPress}>
-        <Animated.View style={{transform:[{scale:animatedScale}]}}>
+        <Animated.View style={{ transform: [{ scale: animatedScale }] }}>
           <Feather name="more-vertical" size={32} color="#808080" />
         </Animated.View>
       </TouchableOpacity>
-      
+
     </Animatable.View>
   );
 };

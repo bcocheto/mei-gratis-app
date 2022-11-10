@@ -8,45 +8,13 @@ import { SHADOWS_OPACITY_ENUM } from "../../enums/ShadowsOpacity";
 export const styles = StyleSheet.create({
   modal: {
     flex: 1,
-  },
-  modalContentWrapper: {
-    flex: 1,
-    top: '45%',
-    backgroundColor: 'white',
-    margin: 16,
-    borderRadius: 50,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: SHADOWS_OFFSET_ENUM.medium_width,
-      height: SHADOWS_OFFSET_ENUM.medium_height
-    },
-    shadowOpacity: SHADOWS_OPACITY_ENUM.medium,
-    shadowRadius: SHADOWS_RADIUS_ENUM.medium,
-    elevation: SHADOWS_ELEVATION_ENUM.medium
-  },
-  modalHeader: {
-    flexDirection: 'column',
-    backgroundColor: COLORS_ENUM.primary,
-    padding: 16,
-    borderTopLeftRadius: 50,
-    borderTopRightRadius: 50
-  },
-  modalHeaderContent: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.3)'
   },
   modalContent: {
-    flex: 1,
-    padding: 16,
-  },
-  modalConfig: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
-  icon: {
-    margin: 6,
-    color: COLORS_ENUM.primary_light,
+    top: '30%',
+    marginHorizontal: 16,
+    backgroundColor: COLORS_ENUM.menu_color,
+    borderRadius: 6,
     shadowColor: "#000",
     shadowOffset: {
       width: SHADOWS_OFFSET_ENUM.basic_width,
@@ -54,7 +22,23 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: SHADOWS_OPACITY_ENUM.basic,
     shadowRadius: SHADOWS_RADIUS_ENUM.basic,
-    elevation: 6,
+    elevation: SHADOWS_ELEVATION_ENUM.basic,
+  },
+  modalHeader: {
+    backgroundColor: COLORS_ENUM.primary,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    padding: 6
+  },
+  form: {
+    marginTop:6,
+    padding: 6,
+    paddingHorizontal: 18,
+  },
+  imageWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent:'center'
   },
   image: {
     borderRadius: 100 * .2,
@@ -62,21 +46,43 @@ export const styles = StyleSheet.create({
     aspectRatio: 1,
     width: 100,
     height: undefined,
-    borderColor: COLORS_ENUM.primary_light,
+    borderColor: COLORS_ENUM.primary_text,
     overflow: "hidden",
     borderWidth: 1,
   },
   imagePicker: {
     position: 'absolute',
-    left: 110,
-    top: 38,
+    left: 180,
+    top: 46,
+    color:COLORS_ENUM.primary_text
+  },
+  buttonGroup: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  button: {
+    borderRadius: 6,
+    padding: 10,
+    margin: 6,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: SHADOWS_OFFSET_ENUM.basic_width,
+      height: SHADOWS_OFFSET_ENUM.basic_height
+    },
+    shadowOpacity: SHADOWS_OPACITY_ENUM.basic,
+    shadowRadius: SHADOWS_RADIUS_ENUM.basic,
+    elevation: SHADOWS_ELEVATION_ENUM.basic,
   },
   title: {
-    fontSize: 18,
-    lineHeight: 20,
-    letterSpacing: -.5,
+    fontSize: 30,
+    lineHeight: 40,
     fontWeight: 'bold',
     color: COLORS_ENUM.primary_light,
+  },
+  text: {
+    fontSize: 18,
+    lineHeight: 20,
+    fontWeight: 'bold',
   },
   secondary_title: {
     fontSize: 14,
@@ -85,18 +91,10 @@ export const styles = StyleSheet.create({
     letterSpacing: -.5,
     color: COLORS_ENUM.primary_text,
   },
-  subTitle: {
-    fontSize: 14,
-    fontWeight: '400',
-    lineHeight: 16,
-    letterSpacing: -.2,
-    color: COLORS_ENUM.secondary_text,
-    marginBottom: 5
-  },
   input: {
     borderBottomWidth: .5,
     borderColor: COLORS_ENUM.secondary_text,
     marginBottom: 5,
-    color:COLORS_ENUM.secondary_text
+    color: COLORS_ENUM.secondary_text
   },
 })

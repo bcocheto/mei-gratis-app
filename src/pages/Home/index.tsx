@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, Text,View  } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { BalanceComponent } from '../../components/Balance';
 import { DetailsComponent } from '../../components/Details';
 import { FabComponent } from '../../components/Fab';
 import { HeaderComponent } from '../../components/Header';
 import { ItemTileComponent } from '../../components/ItemTile';
+import { NewItemComponent } from '../../components/NewItem';
 import { useItem } from '../../hooks/useItem';
 import { Item } from '../../types/Item';
 import { styles } from './style';
 
 
 export const HomePage = () => {
-  const { items, balance, pendencie, getAllItems } = useItem();
+  const { items, balance, pendencie, getAllItems, editItem, deleteItem } = useItem();
   const [selectedItem, setSelectedItem] = useState<Item>({
     id: '',
     name: '',
     description: '',
     category: '',
-    price:0,
+    price: 0,
     quantity: 0,
     image: '',
-});
+  });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    getAllItems();
+    if (!items.length) {
+      getAllItems();
+    }
   }, [getAllItems]);
 
   const toggleModal = () => {
@@ -34,8 +37,8 @@ export const HomePage = () => {
   return (
     <View style={styles.container}>
       <HeaderComponent />
-      <BalanceComponent balance={balance} pendencie={pendencie}/>
-      <Text style={styles.textDivider}>TODOS PRODUTOS</Text>
+      <BalanceComponent balance={balance} pendencie={pendencie} />
+      <Text style={styles.textDivider}>PRODUTOS</Text>
       <FlatList
         style={styles.list}
         data={items}
@@ -51,7 +54,14 @@ export const HomePage = () => {
         }
       />
       <FabComponent dimensions={{ bottom: 40, right: 20 }} />
-      <DetailsComponent isOpen={isModalOpen} toggleModal={toggleModal} selectedItem={selectedItem}/>
+      <DetailsComponent
+        isOpen={isModalOpen}
+        selectedItem={selectedItem}
+        toggleModal={toggleModal}
+        editItem={editItem}
+        deleteItem={deleteItem}
+      />
+      <NewItemComponent/>
     </View>
   );
 };
