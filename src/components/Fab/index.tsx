@@ -4,11 +4,12 @@ import { styles } from './style';
 import { AntDesign } from '@expo/vector-icons';
 
 
-interface FabProps{
+interface FabProps {
   dimensions: ViewStyle;
+  toggleCreate: () => void;
 }
 
-export const FabComponent = ({ dimensions }: FabProps) => {
+export const FabComponent = ({ dimensions, toggleCreate }: FabProps) => {
   const animation = useRef(new Animated.Value(0)).current;
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +18,7 @@ export const FabComponent = ({ dimensions }: FabProps) => {
       {
         rotate: animation.interpolate({
           inputRange: [0, 1],
-          outputRange:['0deg','45deg']
+          outputRange: ['0deg', '45deg']
         })
       }
     ]
@@ -29,7 +30,7 @@ export const FabComponent = ({ dimensions }: FabProps) => {
       {
         translateY: animation.interpolate({
           inputRange: [0, 1],
-          outputRange:[0,-10]
+          outputRange: [0, -10]
         })
       }
     ]
@@ -40,7 +41,7 @@ export const FabComponent = ({ dimensions }: FabProps) => {
       {
         translateY: animation.interpolate({
           inputRange: [0, 1],
-          outputRange:[0,-20]
+          outputRange: [0, -20]
         })
       }
     ]
@@ -52,7 +53,7 @@ export const FabComponent = ({ dimensions }: FabProps) => {
     Animated.spring(animation, {
       toValue,
       friction: 4,
-      useNativeDriver:true,
+      useNativeDriver: true,
     }).start();
 
     setIsOpen((prev) => !prev);
@@ -61,13 +62,13 @@ export const FabComponent = ({ dimensions }: FabProps) => {
   return (
     <View style={[styles.container, dimensions]}>
 
-      <TouchableOpacity>
+      {/* <TouchableOpacity>
         <Animated.View style={[styles.button, styles.subMenu, swipeDelete]}>
           <AntDesign name="delete" size={24} color="white" />
         </Animated.View>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <TouchableOpacity >
+      <TouchableOpacity onPress={toggleCreate}>
         <Animated.View style={[styles.button, styles.subMenu, swipeAdd]}>
           <AntDesign name="addfile" size={24} color="white" />
         </Animated.View>
@@ -78,7 +79,7 @@ export const FabComponent = ({ dimensions }: FabProps) => {
           <AntDesign name="plus" size={38} color="white" />
         </Animated.View>
       </TouchableWithoutFeedback>
-    
+
     </View>
   );
 };

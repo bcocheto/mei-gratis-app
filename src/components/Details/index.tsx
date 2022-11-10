@@ -102,19 +102,18 @@ export const DetailsComponent = ({ isOpen, toggleModal, selectedItem, editItem, 
                 <View>
                   {isEditIcon ? (
                     <Text style={styles.title}>{selectedItem.name.toLocaleUpperCase()}</Text>
-                  ):(
-                      <TextInput
-                        numberOfLines={1}
-                        style={styles.input}
-                        placeholder={selectedItem.name}
-                        onChangeText={(text: string) => {
-                          newItem['name'] = text
-                        }}
-                      />
+                  ) : (
+                    <TextInput
+                      numberOfLines={1}
+                      style={styles.input}
+                      placeholder={selectedItem.name}
+                      onChangeText={(text: string) => {
+                        newItem['name'] = text
+                      }}
+                    />
                   )}
                 </View>
               </View>
-
             </View>
 
             <View style={styles.modalContent}>
@@ -148,7 +147,7 @@ export const DetailsComponent = ({ isOpen, toggleModal, selectedItem, editItem, 
                     style={styles.input}
                     placeholder={String(selectedItem.price)}
                     onChangeText={(text: string) => {
-                      newItem['price'] = Number(text.replace(',','.'))
+                      newItem['price'] = Number(text.replace(',', '.'))
                     }}
                   />
                   <Text style={styles.secondary_title}>CATEGORIA</Text>

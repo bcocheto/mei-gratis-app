@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { BalanceComponent } from '../../components/Balance';
 import { DetailsComponent } from '../../components/Details';
 import { FabComponent } from '../../components/Fab';
 import { HeaderComponent } from '../../components/Header';
 import { ItemTileComponent } from '../../components/ItemTile';
 import { NewItemComponent } from '../../components/NewItem';
+import { AntDesign } from '@expo/vector-icons';
 import { useItem } from '../../hooks/useItem';
 import { Item } from '../../types/Item';
 import { styles } from './style';
+import { COLORS_ENUM } from '../../enums/ColorsEnum';
 
 
 export const HomePage = () => {
-  const { items, balance, pendencie, getAllItems, editItem, deleteItem } = useItem();
+  const { items, balance, pendencie, getAllItems, editItem, createItem, deleteItem } = useItem();
   const [selectedItem, setSelectedItem] = useState<Item>({
     id: '',
     name: '',
@@ -23,6 +25,7 @@ export const HomePage = () => {
     image: '',
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
 
   useEffect(() => {
     if (!items.length) {
@@ -33,12 +36,20 @@ export const HomePage = () => {
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   }
+  const toggleCreate = () => {
+    setIsCreateOpen((prev) => !prev);
+  }
 
   return (
     <View style={styles.container}>
       <HeaderComponent />
       <BalanceComponent balance={balance} pendencie={pendencie} />
-      <Text style={styles.textDivider}>PRODUTOS</Text>
+      <View style={styles.menu}>
+        <Text style={styles.textDivider}>PRODUTOS</Text>
+        <TouchableOpacity>
+          <AntDesign name="filter" size={24} color={COLORS_ENUM.secondary_text} />
+        </TouchableOpacity>
+      </View>
       <FlatList
         style={styles.list}
         data={items}
@@ -53,7 +64,7 @@ export const HomePage = () => {
             />
         }
       />
-      <FabComponent dimensions={{ bottom: 40, right: 20 }} />
+      <FabComponent dimensions={{ bottom: 40, right: 20 }} toggleCreate={toggleCreate} />
       <DetailsComponent
         isOpen={isModalOpen}
         selectedItem={selectedItem}
@@ -61,7 +72,7 @@ export const HomePage = () => {
         editItem={editItem}
         deleteItem={deleteItem}
       />
-      <NewItemComponent/>
+      <NewItemComponent isCreateOpen={isCreateOpen} toggleCreate={toggleCreate} createItem={createItem} />
     </View>
   );
 };

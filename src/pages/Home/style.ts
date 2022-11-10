@@ -10,13 +10,17 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor:COLORS_ENUM.background
   },
+  menu: {
+    paddingHorizontal: 16,
+    paddingVertical:16,
+    flexDirection:'row',
+    justifyContent:'space-between',
+  },
   textDivider: {
     fontSize: 18,
     color:COLORS_ENUM.secondary_text,
     letterSpacing:0.01,
     fontWeight: 'bold',
-    paddingTop: 10,
-    paddingStart:15
   },
   list: {
     flex:1,

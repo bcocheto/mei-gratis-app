@@ -5,8 +5,24 @@ import { Item } from '../../types/Item';
 import { styles } from './style';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import uuid from 'react-native-uuid';
 
-export const NewItemComponent = () => {
+interface NewProps {
+  isCreateOpen: boolean;
+  createItem: (item: Item) => Promise<void>;
+  toggleCreate: () => void;
+}
+
+export const NewItemComponent = ({ isCreateOpen, createItem, toggleCreate }: NewProps) => {
+  const newItem: Item = {
+    id: uuid.v4().toString(),
+    name: '',
+    category: '',
+    quantity: 0,
+    price: 0,
+    description: '',
+    image:'',
+  }
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -15,11 +31,16 @@ export const NewItemComponent = () => {
     });
     if (!result.canceled) {
       const assets = result['assets'];
+      newItem['image'] = assets[0].uri;
     }
   };
 
+  const handleSubmit = () => {
+    createItem({...newItem})
+  }
+
   return (
-    <Modal transparent>
+    <Modal transparent visible={isCreateOpen}>
       <View style={styles.modal}>
         <View style={styles.modalContent}>
 
@@ -32,29 +53,43 @@ export const NewItemComponent = () => {
             <TextInput
               numberOfLines={1}
               style={styles.input}
+              onChangeText={(text: string) => {
+                newItem['name'] = text;
+              }}
             />
             <Text style={styles.secondary_title}>DESCRIÇÃO</Text>
             <TextInput
               numberOfLines={1}
               style={styles.input}
+              onChangeText={(text: string) => {
+                newItem['description'] = text;
+              }}
             />
             <Text style={styles.secondary_title}>QUANTIDADE</Text>
             <TextInput
               numberOfLines={1}
               keyboardType='decimal-pad'
               style={styles.input}
+              onChangeText={(text: string) => {
+                newItem['quantity'] = Number(text.replace(',', '.'))
+              }}
             />
             <Text style={styles.secondary_title}>PREÇO</Text>
             <TextInput
               numberOfLines={1}
               keyboardType='decimal-pad'
               style={styles.input}
+              onChangeText={(text: string) => {
+                newItem['price'] = Number(text.replace(',','.'))
+              }}
             />
           </View>
 
           <View style={styles.imageWrapper}>
             <Image
               style={styles.image}
+              key={newItem.image}
+              source={{ uri: `${newItem.image ? newItem.image :'https://archive.org/download/no-photo-available/no-photo-available.png'}`}}
             />
             <TouchableWithoutFeedback onPress={pickImage}>
               <MaterialIcons name="image-search" size={24} style={styles.imagePicker} />
@@ -69,6 +104,7 @@ export const NewItemComponent = () => {
                   backgroundColor: COLORS_ENUM.primary_error
                 }]
               }
+              onPress={toggleCreate}
             >
               <Text style={[
                 styles.text,
@@ -87,6 +123,7 @@ export const NewItemComponent = () => {
                   backgroundColor: COLORS_ENUM.success
                 }]
               }
+              onPress={handleSubmit}
             >
               <Text style={[
                 styles.text,
