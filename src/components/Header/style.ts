@@ -6,7 +6,7 @@ import { SHADOWS_ELEVATION_ENUM } from "../../enums/ShadowsElevation";
 import { SHADOWS_OFFSET_ENUM } from "../../enums/ShadowsOffset";
 import { SHADOWS_OPACITY_ENUM } from "../../enums/ShadowsOpacity";
 
-const STATUS_BAR_HEIGHT = StatusBar.currentHeight;
+const STATUS_BAR_HEIGHT = StatusBar.currentHeight ? StatusBar.currentHeight+4 : 24;
 
 
 export const styles = StyleSheet.create({
@@ -25,11 +25,12 @@ export const styles = StyleSheet.create({
     paddingStart: 16,
     paddingEnd: 16,
     paddingTop:16,
-    paddingBottom:128,
+    paddingBottom:64,
     backgroundColor: COLORS_ENUM.primary
   },
   title: {
     fontSize: 30,
+    lineHeight: 40,
     fontWeight: 'bold',
     color: COLORS_ENUM.primary_light,
   },

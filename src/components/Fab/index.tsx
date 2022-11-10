@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Animated, TouchableOpacity, TouchableWithoutFeedback, View, ViewStyle } from "react-native";
 import { styles } from './style';
 import { AntDesign } from '@expo/vector-icons';
@@ -8,9 +8,8 @@ interface FabProps{
   dimensions: ViewStyle;
 }
 
-const animation = new Animated.Value(0);
-
 export const FabComponent = ({ dimensions }: FabProps) => {
+  const animation = useRef(new Animated.Value(0)).current;
   const [isOpen, setIsOpen] = useState(false);
 
   const rotation = {

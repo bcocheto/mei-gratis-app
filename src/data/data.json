@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "name": "Arroz",
+    "quantity":5,
+    "category":"Alimentos perecíveis",
+    "price":10.5,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fermentum velit ut nulla vestibulum gravida.",
+    "image": "https://www.dicasdemulher.com.br/wp-content/uploads/2018/05/como-fazer-arroz-4.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Açúcar",
+    "category":"Alimentos não perecíveis",
+    "price":5,
+    "quantity":2,
+    "description": "Aliquam fermentum velit ut nulla vestibulum gravida. In placerat vulputate urna, sed dignissim metus facilisis scelerisque.",
+    "image": "https://s2.static.brasilescola.uol.com.br/img/2019/09/acucar.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Detergente",
+    "quantity":10,
+  "category":"Limpeza",
+  "price":11.25,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus ex sem.",
+  "image": "https://www.drogariaminasbrasil.com.br/media/product/c1d/detergente-ype-neutro-500ml-e41.jpg"
+},
+{
+    "id": "4",
+    "name": "Alvejante",
+    "quantity":17,
+    "category":"Limpeza",
+    "price":9.90,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eros diam, facilisis eget arcu vitae, volutpat sollicitudin lacus. Morbi varius sagittis nibh.",
+    "image": "https://carrefourbr.vtexassets.com/arquivos/ids/31689068/alvejante-sem-cloro-para-roupas-coloridas-vanish-500ml-1.jpg?v=637777029230300000"
+  },
+  {
+    "id": "5",
+    "name": "Papel higiênico",
+    "quantity":0,
+    "category":"Higiêne pessoal",
+    "price":15,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "image": "https://static.clubeextra.com.br/img/uploads/1/361/669361.jpg"
+  }
+]
