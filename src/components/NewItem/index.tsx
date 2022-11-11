@@ -36,7 +36,8 @@ export const NewItemComponent = ({ isCreateOpen, createItem, toggleCreate }: New
   };
 
   const handleSubmit = () => {
-    createItem({...newItem})
+    createItem({ ...newItem });
+    toggleCreate();
   }
 
   return (
