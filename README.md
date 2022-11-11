@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img alt="Logo" src="https://github.com/bcocheto/mei-gratis-app/blob/main/Public/logo.png" />
+  ![logo](https://github.com/bcocheto/mei-gratis-app/blob/master/public/logo.png)
   <br>
   <br>
   - MEI GRATIS - Desafio Qipu
@@ -46,9 +46,27 @@ Aplicação criada com a biblioteca React Native utilizando Expo.
 
 **4° Rodando o projeto:**
 
-  <img alt="Make-up Logo" src="https://github.com/bcocheto/mei-gratis-app/blob/main/Public/expo_1.png" />
+  ![expo example](https://github.com/bcocheto/mei-gratis-app/blob/master/public/expo_1.png)
   <br>
   <br>
 
     Assim que um código QR aparecer em sua tela, pressione 'a' para iniciar um build no seu emulador ou apenas 
     use a câmera do seu dispositivo Android para baixar o Expo GO.
+
+
+<div>
+<a href="https://github.com/bcocheto">
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?bcochetoi&layout=compact&langs_count=7&theme=dracula"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=bcocheto&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
+</div>
+
+
+## Contatos:
+
+<div>
+<a href="https://instagram.com/_damask_" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+<a href = "mailto:contato@breno.cocheto"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+<a href="https://www.linkedin.com/in/bcocheto" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>   
+</div>
+
+    ![Snake animation](https://github.com/bcocheto/bcocheto/blob/output/github-contribution-grid-snake.svg)
