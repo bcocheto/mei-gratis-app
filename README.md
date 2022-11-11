@@ -53,11 +53,6 @@ Aplicação criada com a biblioteca React Native utilizando Expo.
     use a câmera do seu dispositivo Android para baixar o Expo GO.
 
 
-<div>
-<a href="https://github.com/bcocheto">
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=bcocheto&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
-</div>
-
 
 ## Contatos:
 
@@ -65,4 +60,8 @@ Aplicação criada com a biblioteca React Native utilizando Expo.
 <a href="https://instagram.com/_damask_" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
 <a href = "mailto:contato@breno.cocheto"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
 <a href="https://www.linkedin.com/in/bcocheto" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>   
+</div>
+<div>
+<a href="https://github.com/bcocheto">
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=bcocheto&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
 </div>
