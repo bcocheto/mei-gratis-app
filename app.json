@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "mei-gratis-app",
+    "slug": "mei-gratis-app",
+    "version": "1.0.0",
+    "sdkVersion": "47.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "android": {
+      "package": "com.bcocheto.meigratisapp"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "db5ac2ef-86ba-4ddb-a0d1-a901f94a2b8a"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.bcocheto.meigratisapp"
+    }
+  }
+}
