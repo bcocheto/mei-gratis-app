@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img alt="Logo" src="https://github.com/bcocheto/mei-gratis-app/blob/main/public/logo.png" />
+  <img alt="Logo" src="https://github.com/bcocheto/mei-gratis-app/blob/main/Public/logo.png" />
   <br>
   <br>
   - MEI GRATIS - Desafio Qipu
@@ -46,7 +46,7 @@ Aplicação criada com a biblioteca React Native utilizando Expo.
 
 **4° Rodando o projeto:**
 
-  <img alt="Make-up Logo" src="https://github.com/bcocheto/mei-gratis-app/blob/main/public/expo_1.png" />
+  <img alt="Make-up Logo" src="https://github.com/bcocheto/mei-gratis-app/blob/main/Public/expo_1.png" />
   <br>
   <br>
 
