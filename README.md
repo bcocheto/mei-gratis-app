@@ -1,6 +1,5 @@
 <h1 align="center">
 <br>
-  ![logo](https://github.com/bcocheto/mei-gratis-app/blob/master/public/logo.png)
   <br>
   <br>
   - MEI GRATIS - Desafio Qipu
